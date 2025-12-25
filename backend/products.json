@@ -1,0 +1,37 @@
+[
+  {
+    "_id": 1,
+    "name": "Orion Trackers",
+    "manufacturer": "SomaticVR",
+    "sku": "ORI-FUL",
+    "description": null
+  },
+  {
+    "_id": 2,
+    "name": "HaritoraX 2",
+    "manufacturer": "Shiftall",
+    "sku": "HAR-FUL",
+    "description": null
+  },
+  {
+    "_id": 3,
+    "name": "SlimeVR",
+    "manufacturer": "SlimeVR BV",
+    "sku": "SLI-FUL",
+    "description": null
+  },
+  {
+    "_id": 4,
+    "name": "Fluxpose",
+    "manufacturer": "Fluxpose SL",
+    "sku": "FLX-FUL",
+    "description": null
+  },
+  {
+    "_id": 5,
+    "name": "QSense Motion",
+    "manufacturer": "2M Engineering",
+    "sku": "QSE-FUL",
+    "description": null
+  }
+]
