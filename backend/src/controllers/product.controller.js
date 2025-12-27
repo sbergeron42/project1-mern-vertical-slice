@@ -18,12 +18,12 @@ export const ProductController = {
     updateProduct: async (req, res) => {
         const product = await ProductService.updateProduct(req.params.id, req.body);
         // check if I need a specific success code here
-        res.json( { success: true, product } );
+        res.status(200).json( { success: true, product } );
     },
 
     deleteProduct: async (req, res) => {
         await ProductService.deleteProduct(req.params.id);
         // specific status code?
-        res.json({ success: true, message: "Product deleted"})
+        res.status(204).send();
     }
 }

@@ -7,11 +7,11 @@ const router = Router();
 
 router.get("/", ProductController.getAll);
 
-router.get("/", ProductController.createProduct);
+router.post("/", ProductController.createProduct);
 
-router.get("/", ProductController.updateProduct);
+router.put("/:id", ProductController.updateProduct);
 
-router.get("/", ProductController.deleteProduct);
+router.delete("/:id", ProductController.deleteProduct);
 
 
 

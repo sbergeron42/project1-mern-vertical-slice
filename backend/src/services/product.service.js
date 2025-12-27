@@ -16,18 +16,18 @@ export const ProductService = {
     },
 
     // same here
-    updateProduct: async () => {
-        const product = await ProductRepository.update();
-        return product;
+    updateProduct: async (id, data) => {
+        const product = await ProductRepository.replace(id, data);
+        return await ProductRepository.findById(id);
     },
 
-    deleteProduct: async () => {
+    deleteProduct: async (productId) => {
         // idk how to do validation here (valid id format)
 
         // also i should check if the productid is valid
 
         // idk how to hard delete
-        return ProductRepository.update(productId, { isActive: false })
+        return ProductRepository.delete(productId, { isActive: false })
 
     }
 
