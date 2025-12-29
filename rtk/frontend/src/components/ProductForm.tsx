@@ -21,7 +21,9 @@ export default function ProductForm({ product, onSubmit, onCancel, isLoading }: 
     description: ''
   });
 
-  // Pre-fill form when editing
+  /**
+   * Pre-fill form when editing
+   */
   useEffect(() => {
     if (product) {
       setFormData({
@@ -44,10 +46,14 @@ export default function ProductForm({ product, onSubmit, onCancel, isLoading }: 
     e.preventDefault();
     
     if (product) {
-      // Edit mode - include the _id
+      /**
+       * Edit mode - include the _id
+       */
       onSubmit({ ...formData, _id: product._id });
     } else {
-      // Create mode - no _id needed
+      /**
+       * Create mode - no _id needed
+       */
       onSubmit(formData);
     }
   };

@@ -9,7 +9,9 @@ import { productApi } from './api/productApi';
  */
 const store = configureStore({
   reducer: {
-    // Add the productApi reducer using its reducerPath
+    /**
+     * Add the productApi reducer using its reducerPath
+     */
     [productApi.reducerPath]: productApi.reducer
   },
   /**

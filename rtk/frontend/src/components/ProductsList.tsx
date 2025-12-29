@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   useFindAllProductsQuery,
   useCreateProductMutation,
@@ -11,8 +11,6 @@ import SearchBar from './SearchBar';
 import ProductForm from './ProductForm';
 
 /**
- * ProductsList Component
- * 
  * Main component that handles all CRUD operations
  */
 export default function ProductsList() {
@@ -20,7 +18,9 @@ export default function ProductsList() {
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   
-  // RTK Query hooks
+  /**
+   * RTK Query hooks
+   */
   const { data: products, error, isLoading } = useFindAllProductsQuery();
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
   const [updateProduct, { isLoading: isUpdating }] = useUpdateProductMutation();
@@ -44,11 +44,9 @@ export default function ProductsList() {
   const handleSubmit = async (productData: Omit<Product, '_id'> | Product) => {
     try {
       if (editingProduct && '_id' in productData) {
-        // Update existing product
         await updateProduct(productData as Product).unwrap();
         alert('Product updated successfully!');
       } else {
-        // Create new product
         await createProduct(productData as Omit<Product, '_id'>).unwrap();
         alert('Product created successfully!');
       }
@@ -101,14 +99,18 @@ export default function ProductsList() {
     setShowForm(true);
   };
 
-  // Loading state
+  /**
+   * Loading state
+   */ 
   if (isLoading) {
     return (
       <div className="alert alert-info">Loading products...</div>
     );
   }
 
-  // Error state
+  /**
+   * Error state
+   */
   if (error) {
     return (
       <div className="alert alert-danger">
@@ -117,7 +119,9 @@ export default function ProductsList() {
     );
   }
 
-  // Show form if creating or editing
+  /**
+   * Show form if creating or editing
+   */
   if (showForm) {
     return (
       <ProductForm
@@ -129,7 +133,9 @@ export default function ProductsList() {
     );
   }
 
-  // Empty state
+  /**
+   * Empty state
+   */
   if (!products || products.length === 0) {
     return (
       <>
@@ -144,7 +150,9 @@ export default function ProductsList() {
     );
   }
 
-  // No search results
+  /**
+   * No search results
+   */
   if (filteredProducts && filteredProducts.length === 0) {
     return (
       <>
@@ -163,7 +171,9 @@ export default function ProductsList() {
     );
   }
 
-  // Display products
+  /**
+   * Display products
+   */
   return (
     <>
       <button 

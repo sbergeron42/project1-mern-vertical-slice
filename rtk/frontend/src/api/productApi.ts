@@ -12,7 +12,7 @@ import type { Product } from '../types/Product';
 export const productApi = createApi({
   reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
-  tagTypes: ['Product'], // Used for automatic cache invalidation
+  tagTypes: ['Product'], // auto cache invalidation
   endpoints: (builder) => ({
     /**
      * GET - Find all products
@@ -63,7 +63,9 @@ export const productApi = createApi({
   })
 });
 
-// Export all auto-generated hooks
+/**
+ * Export all auto-generated hooks
+ */
 export const { 
   useFindAllProductsQuery,
   useCreateProductMutation,
